@@ -1,2 +1,2 @@
 # igut.github.io
-Landing page for may projects
+Landing page for my projects
