@@ -10,7 +10,7 @@
     document.querySelector('#go').onclick = (e) => {
       e.preventDefault();
       // Use the same service UUID as in mbed here!
-      navigator.bluetooth.requestDevice({ filters: [{ services: [ 0x8765 ] }] })
+      navigator.bluetooth.requestDevice({ filters: [{ name: "I'm a beacon!" /*services: [ 0x8765 ]*/ }] })
         .then(device => {
           console.log('Found device ' + device.name);
           return device.connectGATT();
