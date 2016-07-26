@@ -24,19 +24,21 @@
     	  return service.getCharacteristic(0xA001);
   	})
   	.then(characteristic => {
-	  console.log('Reading LED Characteristic...');
-	  let op = new Uint8Array([1]);
-	  let value = characteristic.readValue();
-	  let led_value = value.getUint8(0);
-	  console.log('current value: ' + led_value);
+	  //console.log('Reading LED Characteristic...');
+	  //let op = new Uint8Array([1]);
+	  //let value = characteristic.readValue();
+	  //let led_value = value.getUint8(0);
+	  //console.log('current value: ' + led_value);
 	 
 	  console.log('Writing LED Characteristic...');
 
 	  // Writing 1 as the signal
-    	  return characteristic.writeValue(led_value ^ op);
+    	  //return characteristic.writeValue(led_value ^ op);
+    	  return characteristic.writeValue(new Uint8Array([0]));
 	})
 	.then(_ => {
-    	  alert((led_value==0x00)? 'LED ON' : 'LED OFF');
+    	  //alert((led_value==0x00)? 'LED ON' : 'LED OFF');
+    	  alert('LED ON');
 	})
         .catch(err => {
           alert('' + err + ' ' + JSON.stringify(err));
