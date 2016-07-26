@@ -27,7 +27,7 @@
 	  console.log('Writing LED Characteristic...');
 
 	  // Writing 1 as the signal
-	  let led_value = new Uint8(0x00);
+	  let led_value = new Uint8Array(0x00);
 	  if (characteristic.readValue()==0x00)
 	    led_value = 0x01;
     	  return characteristic.writeValue(led_value);
