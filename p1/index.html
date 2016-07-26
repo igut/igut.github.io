@@ -13,7 +13,7 @@
       navigator.bluetooth.requestDevice({ filters: [{ services: [ 0x8765 ] }] })
         .then(device => {
           console.log('Found device ' + device.name);
-          return device.connectGATT();
+          return device.gatt.connect();
         })
         .then(() => {
           alert('Connected over GATT!');
