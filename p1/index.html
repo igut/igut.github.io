@@ -25,13 +25,14 @@
   	})
   	.then(characteristic => {
 	  console.log('Reading LED Characteristic...');
-	  let led_value = characteristic.readValue();
-	  console.log(led_value);
+	  let op = Uint8Array([1]);
+	  let led_value = characteristic.readValue().getUint8(0);
+	  console.log('current value: ' + led_value);
 	 
 	  console.log('Writing LED Characteristic...');
 
 	  // Writing 1 as the signal
-    	  return characteristic.writeValue(led_value);
+    	  return characteristic.writeValue(led_value ^ op);
 	})
 	.then(_ => {
     	  alert((led_value==0x00)? 'LED ON' : 'LED OFF');
