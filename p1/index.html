@@ -25,7 +25,7 @@
   	})
   	.then(characteristic => {
 	  console.log('Reading LED Characteristic...');
-	  let op = Uint8Array([1]);
+	  let op = new Uint8Array([1]);
 	  let led_value = characteristic.readValue().getUint8(0);
 	  console.log('current value: ' + led_value);
 	 
